@@ -18,10 +18,40 @@ header{background:var(--green);color:white;position:sticky;top:0;z-index:10;box-
   display:block;
   }width:46px;height:46px;flex-shrink:0;border-radius:50%;background:var(--lime);color:var(--green);display:grid;place-items:center;font-weight:900;font-size:20px}.brand strong{display:block;font-size:15px;line-height:1.25}.brand small{display:block;font-size:11px;color:#d9f99d;margin-top:3px}nav{display:flex;flex-wrap:wrap;gap:15px;align-items:center}nav a{text-decoration:none;font-weight:bold;font-size:13px}nav a:hover{color:var(--lime)}.nav-order,.btn{display:inline-block;background:var(--orange);color:#241804;text-decoration:none;padding:11px 16px;border-radius:9px;font-weight:bold;border:0;cursor:pointer}.cart-button{background:#e8f5e7;color:var(--green);border:0;border-radius:9px;padding:9px 12px;font-weight:bold;cursor:pointer;white-space:nowrap}.count{display:inline-block;background:var(--green);color:white;border-radius:99px;padding:0 7px;margin-left:4px}
 .hero{background:linear-gradient(120deg,#103e28,#237844);color:white;padding:65px 20px 60px}.hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:30px}.eyebrow{color:var(--lime);font-weight:bold;text-transform:uppercase;letter-spacing:2px;font-size:12px}h1{font-size:clamp(34px,5vw,57px);line-height:1.08;margin:14px 0 18px;letter-spacing:-1.3px}.hero p{font-size:18px;color:#e2eee4;max-width:610px}.hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}.btn-secondary{display:inline-block;border:1px solid #ffffff99;border-radius:9px;padding:10px 16px;text-decoration:none;font-weight:bold;color:white}.hero-panel{background:#ffffff12;border:1px solid #ffffff30;border-radius:20px;padding:25px}.hero-panel h2{margin:0 0 10px;font-size:22px}.hero-panel p{font-size:14px;margin:8px 0}.hero-panel .big{font-size:25px;font-weight:bold;color:var(--lime)}.trust{background:white;border-bottom:1px solid #e1e8df}.trust-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:15px;padding:18px 20px;text-align:center;font-size:13px;font-weight:bold}
-section{padding:55px 20px}.container{max-width:1100px;margin:auto}.section-head{text-align:center;max-width:700px;margin:0 auto 28px}.section-head h2{font-size:clamp(27px,4vw,37px);line-height:1.2;margin:0 0 10px;color:var(--green)}.section-head p{color:var(--muted);margin:0}.catalogue{background:#fff}.tools{display:grid;grid-template-columns:1fr 220px;gap:12px;margin-bottom:22px}.tools input,.tools select{width:100%;padding:13px 14px;border:1px solid #ccd8ce;border-radius:9px;background:white;color:var(--ink)}.product-count{color:var(--muted);font-size:13px;margin-bottom:15px}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.product{border:1px solid #e0e8e0;background:white;border-radius:13px;padding:18px;display:flex;flex-direction:column;min-width:0;box-shadow:0 4px 14px #173b2108}.product:hover{border-color:#86b995;box-shadow:0 8px 24px #173b2110}.product-icon{height:65px;width:65px;background:#edf7e9;border-radius:13px;display:grid;place-items:center;font-size:30px;margin-bottom:13px}.tag{font-size:10px;font-weight:bold;text-transform:uppercase;letter-spacing:.5px;color:var(--green2);background:#e9f5e8;border-radius:20px;padding:5px 9px;align-self:flex-start}.product h3{font-size:17px;margin:11px 0 5px;line-height:1.3;overflow-wrap:anywhere}.product .price{font-size:20px;font-weight:800;color:var(--green);margin:5px 0 14px}.product .price small{display:block;font-size:11px;font-weight:normal;color:var(--muted)}.product-actions{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap}.product-actions button{flex:1;text-align:center;padding:10px 7px;font-size:13px;border-radius:9px;font-weight:bold;cursor:pointer}.add-btn{background:var(--orange);color:#241804;border:0}.ask-btn{background:#fff;color:var(--green);border:1px solid #b9cdbb}.empty{grid-column:1/-1;text-align:center;padding:35px;color:var(--muted)}.note{margin-top:20px;padding:13px 15px;border-radius:9px;background:#fff7df;color:#6c4b09;font-size:13px}
+section{padding:55px 20px}.container{max-width:1100px;margin:auto}.section-head{text-align:center;max-width:700px;margin:0 auto 28px}.section-head h2{font-size:clamp(27px,4vw,37px);line-height:1.2;margin:0 0 10px;color:var(--green)}.section-head p{color:var(--muted);margin:0}.catalogue{background:#fff}.tools{display:grid;grid-template-columns:1fr 220px;gap:12px;margin-bottom:22px}.tools input,.tools select{width:100%;padding:13px 14px;border:1px solid #ccd8ce;border-radius:9px;background:white;color:var(--ink)}.product-count{color:var(--muted);font-size:13px;margin-bottom:15px}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.product{border:1px solid #e0e8e0;background:white;border-radius:13px;padding:18px;display:flex;flex-direction:column;min-width:0;box-shadow:0 4px 14px #173b2108}.product:hover{border-color:#86b995;box-shadow:0 8px 24px #173b2110}
+.product-icon {
+  width: 100%;
+  height: 180px;
+  background: #edf7e9;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin-bottom: 13px;
+}
+
+.product-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 8px;
+}
+
+.product-fallback {
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  font-size: 42px;
+}
+.tag{font-size:10px;font-weight:bold;text-transform:uppercase;letter-spacing:.5px;color:var(--green2);background:#e9f5e8;border-radius:20px;padding:5px 9px;align-self:flex-start}.product h3{font-size:17px;margin:11px 0 5px;line-height:1.3;overflow-wrap:anywhere}.product .price{font-size:20px;font-weight:800;color:var(--green);margin:5px 0 14px}.product .price small{display:block;font-size:11px;font-weight:normal;color:var(--muted)}.product-actions{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap}.product-actions button{flex:1;text-align:center;padding:10px 7px;font-size:13px;border-radius:9px;font-weight:bold;cursor:pointer}.add-btn{background:var(--orange);color:#241804;border:0}.ask-btn{background:#fff;color:var(--green);border:1px solid #b9cdbb}.empty{grid-column:1/-1;text-align:center;padding:35px;color:var(--muted)}.note{margin-top:20px;padding:13px 15px;border-radius:9px;background:#fff7df;color:#6c4b09;font-size:13px}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}.about-card{background:#e8f3e6;border-radius:18px;padding:26px}.about-card h3{color:var(--green);margin-top:0}.about-card li{margin:9px 0}.locations{background:#edf4eb}.location-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.location{background:white;border:1px solid #e0e8df;border-radius:12px;padding:20px}.location .pin{font-size:25px}.location h3{font-size:16px;margin:8px 0}.location p{font-size:14px;color:var(--muted)}.location a{font-weight:bold;color:var(--green);font-size:13px}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.contact-panel{background:var(--green);color:white;padding:26px;border-radius:16px}.contact-panel h3{margin-top:0;font-size:23px}.contact-panel a{color:var(--lime);overflow-wrap:anywhere}.contact-item{margin:17px 0}.contact-item small{display:block;color:#c7e1cd}.contact-form{background:white;border:1px solid #e1e8df;border-radius:16px;padding:25px}.contact-form label{display:block;font-weight:bold;font-size:13px;margin:12px 0 5px}.contact-form input,.contact-form textarea{width:100%;padding:12px;border:1px solid #ccd8ce;border-radius:8px}.contact-form textarea{min-height:85px}.contact-form .btn{width:100%;margin-top:17px}footer{background:#102e20;color:#dbe9dd;padding:27px 20px;text-align:center;font-size:12px}footer strong{color:white}footer a{color:var(--lime)}
 .cart-overlay{position:fixed;inset:0;background:#0a160db0;z-index:50;display:none;justify-content:flex-end}.cart-overlay.open{display:flex}.cart-panel{background:#fff;width:min(460px,100%);height:100%;overflow:auto;padding:22px;box-shadow:-10px 0 40px #0002}.cart-head{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:15px}.cart-head h2{margin:0;color:var(--green)}.close{border:0;background:#eef4ed;border-radius:9px;padding:9px 12px;font-size:1.1rem;cursor:pointer}.cart-items{display:grid;gap:12px;margin:18px 0}.cart-item{border:1px solid var(--line);border-radius:12px;padding:13px}.cart-item-top{display:flex;justify-content:space-between;gap:10px}.cart-item h4{margin:0}.muted{color:var(--muted);font-size:.88rem}.qty-row{display:flex;align-items:center;gap:8px;margin-top:10px}.qty-row button{width:32px;height:32px;border:1px solid var(--line);background:#f7faf6;border-radius:8px;font-weight:900;cursor:pointer}.qty-row input{width:54px;text-align:center;padding:6px;border:1px solid var(--line);border-radius:7px}.remove{margin-left:auto;color:#a12626;border:0;background:none;text-decoration:underline;cursor:pointer}.totals{border-top:1px solid var(--line);padding-top:15px}.total-line{display:flex;justify-content:space-between;gap:12px;margin:7px 0}.total-line.grand{font-size:1.2rem;font-weight:900;color:var(--green)}.cart-help{font-size:.84rem;color:var(--muted)}.checkout{width:100%;margin-top:12px;background:#128c45;color:white}.no-scroll{overflow:hidden}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--green);color:white;padding:12px 18px;border-radius:12px;z-index:80;box-shadow:0 5px 25px #0003}
-@media(max-width:760px){.nav{flex-wrap:wrap;padding:11px 15px}.nav nav{width:auto;flex:1;justify-content:flex-end;gap:9px}.nav nav a{font-size:12px}.nav-order{padding:8px 10px}.cart-button{padding:8px 10px}.hero{padding:46px 18px}.hero-inner{grid-template-columns:1fr;gap:24px}.hero-panel{padding:20px}.trust-inner{grid-template-columns:1fr;gap:8px}section{padding:42px 16px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product{padding:12px}.product h3{font-size:15px}.product .price{font-size:17px}.product-actions{flex-direction:column}.product-actions button{font-size:12px;padding:9px 5px}.tools{grid-template-columns:1fr}.about-grid,.contact-grid{grid-template-columns:1fr}.location-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.nav{flex-wrap:wrap;padding:11px 15px}.nav nav{width:auto;flex:1;justify-content:flex-end;gap:9px}.nav nav a{font-size:12px}.nav-order{padding:8px 10px}.cart-button{padding:8px 10px}.hero{padding:46px 18px}.hero-inner{grid-template-columns:1fr;gap:24px}.hero-panel{padding:20px}.trust-inner{grid-template-columns:1fr;gap:8px}section{padding:42px 16px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product{padding:12px}.product h3{font-size:15px}.product .price{font-size:17px}.product-actions{flex-direction:column}.product-actions button{font-size:12px;padding:9px 5px}.tools{grid-template-columns:1fr}.about-grid,.contact-grid{grid-template-columns:1fr}.location-grid{grid-template-columns:1fr}}@media(max-width:760px){
+  .product-icon {
+    height: 140px;
+  }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
 @media(max-width:520px){.nav{gap:9px}.brand strong{font-size:13px}.brand small{font-size:10px}.logo{width:40px;height:40px}.nav nav a:not(.nav-order){display:none}.nav nav{flex:0 0 auto}.hero-panel{display:block}.product-actions{flex-direction:column}}
 @media(max-width:360px){.products{grid-template-columns:1fr}}
 </style>
@@ -41,9 +71,123 @@ section{padding:55px 20px}.container{max-width:1100px;margin:auto}.section-head{
 const products=[
 ['Legume Force','Other'],['Best','Other'],['Nwura wura','Herbicides',3000,'1Lt'],['Daquashi','Other'],['Bush Klear','Herbicides',3200,'1Lt'],['Field Klear','Herbicides',6500,'1Lt'],['Avtar','Insecticides'],['Owonderful','Other'],['Organic Booster','Other'],['Rocket','Herbicides'],['Force Up','Herbicides',2800,'1Lt'],['Dragon','Herbicides',3700,'1Lt'],['Urea Fertilizer','Fertilizers'],['NPK 15:15:15 Golden','Fertilizers',5500],['NPK 20:20 Golden','Fertilizers',48000],['Formaize','Other'],['Magic Force','Other'],['Relisate','Herbicides'],['Sun-winner','Herbicides'],['XPressPro 1Lt','Herbicides',3700,'1Lt'],['Reactive Force','Other'],['Dress Force','Other'],['Aceta','Insecticides'],['Organic Maize','Seeds'],['Supergrow','Fertilizers'],['Royauron','Herbicides'],['Atraforce','Herbicides'],['DD Force','Other'],['Striker','Herbicides'],['Pest off','Insecticides'],['Reaper','Herbicides'],['Sniper','Insecticides'],['Relimine','Other'],['Boots','Equipment'],['Sprayers','Equipment'],['Crossfire','Herbicides'],['Razer','Herbicides'],['Sharpshooter','Herbicides'],['Royazate','Herbicides'],['Cypeforce','Insecticides'],['Zap','Insecticides'],['Cypermethrin','Insecticides'],['Lambdacal','Insecticides'],['Lara Force','Herbicides'],['Lara Force Gold','Herbicides'],['Sprayer Spare Parts','Equipment'],['Dragon Super','Herbicides'],['Paraq','Herbicides',3700,'1Lt'],['Gallant Power Plus','Herbicides'],['Grazor','Herbicides'],['Roya 2-4-D','Herbicides'],['Agric Seeds','Seeds'],['Royatrazine','Herbicides'],['Chase','Herbicides'],['Force Toxin','Insecticides'],['Push Out','Herbicides'],['Red Force','Other'],['Clampdown','Herbicides',3900,'1Lt'],['Field Klear Pro','Herbicides',3300],['Cypergreen','Insecticides'],['Cutlass','Herbicides',5100],['Indorama Urea','Fertilizers',3700],['Dangote Urea','Fertilizers',3700],['Bush Klear 5Lt','Herbicides',16500,'5Lt'],['ExpressPro 5Lt','Herbicides',18000,'5Lt'],['Razedown','Herbicides',3200,'1Lt'],['Uproot','Herbicides',3100,'1Lt']
 ].map(([name,category,price,size])=>({name,category,price:price??null,size:size??''}));
-const icons={Herbicides:'🌿',Fertilizers:'🌱',Insecticides:'🛡️',Seeds:'🌽',Equipment:'🧰',Other:'🌾'};const cart=new Map();const money=n=>'₦'+Number(n).toLocaleString('en-NG');const grid=document.getElementById('products-grid'),search=document.getElementById('search'),category=document.getElementById('category');
-function esc(s){return s.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}
-function renderProducts(){const q=search.value.trim().toLowerCase(),chosen=category.value;const filtered=products.filter(p=>p.name.toLowerCase().includes(q)&&(chosen==='all'||p.category===chosen));document.getElementById('count').textContent='Showing '+filtered.length+' products';if(!filtered.length){grid.innerHTML='<div class="empty">No matching products found. Try another search.</div>';return}grid.innerHTML=filtered.map(p=>`<article class="product"><div class="product-icon">${icons[p.category]||'🌾'}</div><span class="tag">${p.category}</span><h3>${p.name}</h3><div class="price">${p.price===null?'Contact for price':money(p.price)}<small>${p.size?'Pack size: '+p.size:'Confirm pack size and availability'}</small></div><div class="product-actions"><button class="add-btn" onclick="addToCart('${esc(p.name)}')">＋ Add to Cart</button><button class="ask-btn" onclick="quickWhatsApp('${esc(p.name)}')">Ask on WhatsApp</button></div></article>`).join('')}
+
+const productImages = {
+  'Legume Force': 'legumeforce.jpeg',
+  'Best': 'best.jpeg',
+  'Nwura wura': 'nwurawura.jpeg',
+  'Daquashi': 'daquashi.jpeg',
+  'Bush Klear': 'bushklear.jpeg',
+  'Field Klear': 'fieldklear.jpeg',
+  'Avtar': 'avtar.jpeg',
+  'Rocket': 'rocket.jpeg',
+  'Force Up': 'forceup.jpeg',
+  'Dragon': 'dragon.jpeg',
+  'Formaize': 'formaize.jpeg',
+  'Magic Force': 'magicforce.jpeg',
+  'Relisate': 'relisate.jpeg',
+  'Dress Force': 'dressforce.jpeg',
+  'Aceta': 'aceta.jpeg',
+  'Organic Maize': 'maize.jpeg',
+  'Supergrow': 'supergrow.jpeg',
+  'Royauron': 'royauron.jpeg',
+  'Atraforce': 'atraforce.jpeg',
+  'DD Force': 'ddforce.jpeg',
+  'Striker': 'striker.jpeg',
+  'Pest off': 'pestoff.jpeg',
+  'Reaper': 'reaper.jpeg',
+  'Sniper': 'sniper.jpeg',
+  'Boots': 'boots.jpeg',
+  'Sprayers': 'sprayer.jpeg',
+  'Crossfire': 'crossfire.jpeg',
+  'Razer': 'razor.jpeg',
+  'Sharpshooter': 'sharpshooter.jpeg',
+  'Royazate': 'royazate.jpeg',
+  'Cypeforce': 'cypeforce.jpeg',
+  'Zap': 'zap.jpeg',
+  'Cypermethrin': 'cypermethrin.jpeg',
+  'Lambdacal': 'lambdacal.jpeg',
+  'Lara Force': 'laraforce.jpeg',
+  'Lara Force Gold': 'laraforcegold.jpeg',
+  'Sprayer Spare Parts': 'sprayerspareparts.jpeg',
+  'Dragon Super': 'dragonsuper.jpeg',
+  'Paraq': 'paraq.jpeg',
+  'Gallant Power Plus': 'gallantpowerplus.jpeg',
+  'Grazor': 'grazor.jpeg',
+  'Royatrazine': 'royatrazine.jpeg',
+  'Chase': 'chase.jpeg',
+  'Force Toxin': 'forcetoxin.jpeg',
+  'Push Out': 'pushout.jpeg',
+  'Red Force': 'redforce.jpeg',
+  'Clampdown': 'clampdown.jpeg',
+  'Field Klear Pro': 'fieldklearpro.jpeg',
+  'Cypergreen': 'cypergreen.jpeg',
+  'Cutlass': 'cutlass.jpeg',
+  'Indorama Urea': 'indoramaurea.jpeg',
+  'Dangote Urea': 'dangoteurea.jpeg',
+  'Bush Klear 5Lt': 'bushklear5lt.jpeg',
+  'Razedown': 'razedown.jpeg',
+  'Uproot': 'uproot.jpeg',
+  'NPK 15:15:15 Golden': 'npk151515.jpeg'
+};
+
+const icons = {
+  Herbicides: '🌿',
+  Fertilizers: '🌱',
+  Insecticides: '🛡️',
+  Seeds: '🌽',
+  Equipment: '🧰',
+  Other: '🌾'
+grid.innerHTML = filtered.map(p => {
+  const imageFile = productImages[p.name];
+
+  const imageHTML = imageFile
+    ? `<img
+         src="${imageFile}"
+         alt="${p.name}"
+         class="product-photo"
+         loading="lazy"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+       >`
+    : '';
+
+  return `
+    <article class="product">
+      <div class="product-icon">
+        ${imageHTML}
+        <span class="product-fallback"
+          style="display:${imageFile ? 'none' : 'grid'}">
+          ${icons[p.category] || '🌾'}
+        </span>
+      </div>
+
+      <span class="tag">${p.category}</span>
+      <h3>${p.name}</h3>
+
+      <div class="price">
+        ${p.price === null ? 'Contact for price' : money(p.price)}
+        <small>
+          ${p.size
+            ? 'Pack size: ' + p.size
+            : 'Confirm pack size and availability'}
+        </small>
+      </div>
+
+      <div class="product-actions">
+        <button class="add-btn"
+          onclick="addToCart('${esc(p.name)}')">
+          ＋ Add to Cart
+        </button>
+
+        <button class="ask-btn"
+          onclick="quickWhatsApp('${esc(p.name)}')">
+          Ask on WhatsApp
+        </button>
+      </div>
+    </article>
+  `;
+}).join('');
+}
 function updateCartCount(){document.getElementById('cartCount').textContent=[...cart.values()].reduce((s,p)=>s+p.qty,0)}function addToCart(name){const p=products.find(x=>x.name===name);if(!p)return;const item=cart.get(name)||{...p,qty:0};item.qty++;cart.set(name,item);updateCartCount();const old=document.getElementById('cartToast');if(old)old.remove();const t=document.createElement('div');t.id='cartToast';t.className='toast';t.textContent=name+' added to cart';document.body.appendChild(t);setTimeout(()=>t.remove(),1800)}
 function openCart(){document.getElementById('cartOverlay').classList.add('open');document.body.classList.add('no-scroll');renderCart()}function closeCart(){document.getElementById('cartOverlay').classList.remove('open');document.body.classList.remove('no-scroll')}function overlayClick(e){if(e.target.id==='cartOverlay')closeCart()}function changeQty(name,d){const p=cart.get(name);if(!p)return;p.qty+=d;if(p.qty<=0)cart.delete(name);updateCartCount();renderCart()}function setQty(name,v){const p=cart.get(name);if(!p)return;p.qty=Math.max(1,Math.min(999,parseInt(v)||1));updateCartCount();renderCart()}function removeItem(name){cart.delete(name);updateCartCount();renderCart()}
 function renderCart(){const el=document.getElementById('cartItems'),tot=document.getElementById('cartTotals'),items=[...cart.values()];if(!items.length){el.innerHTML='<div class="empty">Your cart is empty. Go to Products and tap “Add to Cart” on the items you want.</div>';tot.innerHTML='<div class="total-line grand"><span>Total</span><span>₦0</span></div>';return}el.innerHTML=items.map(p=>`<div class="cart-item"><div class="cart-item-top"><div><h4>${p.name}</h4><div class="muted">${p.price===null?'Price to be confirmed':money(p.price)+' each'}</div></div><strong>${p.price===null?'—':money(p.price*p.qty)}</strong></div><div class="qty-row"><button onclick="changeQty('${esc(p.name)}',-1)" aria-label="Decrease quantity">−</button><input type="number" min="1" max="999" value="${p.qty}" onchange="setQty('${esc(p.name)}',this.value)" aria-label="Quantity for ${p.name}"><button onclick="changeQty('${esc(p.name)}',1)" aria-label="Increase quantity">＋</button><button class="remove" onclick="removeItem('${esc(p.name)}')">Remove</button></div></div>`).join('');const known=items.reduce((s,p)=>s+(p.price===null?0:p.price*p.qty),0),unknown=items.some(p=>p.price===null);tot.innerHTML=`<div class="total-line"><span>Priced items subtotal</span><strong>${money(known)}</strong></div>${unknown?'<p class="cart-help">Unpriced products are excluded until their prices are confirmed.</p>':''}<div class="total-line grand"><span>Current total${unknown?' (priced items only)':''}</span><span>${money(known)}</span></div>`}
