@@ -131,6 +131,7 @@ const productImages = {
   'NPK 15:15:15 Golden': 'npk151515.jpeg'
 };
 
+
 const icons = {
   Herbicides: '🌿',
   Fertilizers: '🌱',
@@ -138,55 +139,79 @@ const icons = {
   Seeds: '🌽',
   Equipment: '🧰',
   Other: '🌾'
-grid.innerHTML = filtered.map(p => {
-  const imageFile = productImages[p.name];
+};
 
-  const imageHTML = imageFile
-    ? `<img
-         src="${imageFile}"
-         alt="${p.name}"
-         class="product-photo"
-         loading="lazy"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
-       >`
-    : '';
+const search = document.getElementById('search');
+const category = document.getElementById('category');
 
-  return `
-    <article class="product">
-      <div class="product-icon">
-        ${imageHTML}
-        <span class="product-fallback"
-          style="display:${imageFile ? 'none' : 'grid'}">
-          ${icons[p.category] || '🌾'}
-        </span>
-      </div>
+function renderProducts() {
+  const q = search.value.toLowerCase().trim();
+  const cat = category.value;
 
-      <span class="tag">${p.category}</span>
-      <h3>${p.name}</h3>
+  const filtered = products.filter(p =>
+    p.name.toLowerCase().includes(q) &&
+    (cat === 'all' || p.category === cat)
+  );
 
-      <div class="price">
-        ${p.price === null ? 'Contact for price' : money(p.price)}
-        <small>
-          ${p.size
-            ? 'Pack size: ' + p.size
-            : 'Confirm pack size and availability'}
-        </small>
-      </div>
+  document.getElementById('count').textContent =
+    `${filtered.length} product${filtered.length === 1 ? '' : 's'} found`;
 
-      <div class="product-actions">
-        <button class="add-btn"
-          onclick="addToCart('${esc(p.name)}')">
-          ＋ Add to Cart
-        </button>
+  const grid = document.getElementById('products-grid');
 
-        <button class="ask-btn"
-          onclick="quickWhatsApp('${esc(p.name)}')">
-          Ask on WhatsApp
-        </button>
-      </div>
-    </article>
-  `;
-}).join('');
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="empty">No products found. Try another search or category.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p => {
+    const imageFile = productImages[p.name];
+
+    const imageHTML = imageFile
+      ? `<img
+           src="${imageFile}"
+           alt="${p.name}"
+           class="product-photo"
+           loading="lazy"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+         >`
+      : '';
+
+    return `
+      <article class="product">
+        <div class="product-icon">
+          ${imageHTML}
+          <span class="product-fallback"
+            style="display:${imageFile ? 'none' : 'grid'}">
+            ${icons[p.category] || '🌾'}
+          </span>
+        </div>
+
+        <span class="tag">${p.category}</span>
+        <h3>${p.name}</h3>
+
+        <div class="price">
+          ${p.price === null ? 'Contact for price' : money(p.price)}
+          <small>
+            ${p.size
+              ? 'Pack size: ' + p.size
+              : 'Confirm pack size and availability'}
+          </small>
+        </div>
+
+        <div class="product-actions">
+          <button class="add-btn"
+            onclick="addToCart('${esc(p.name)}')">
+            ＋ Add to Cart
+          </button>
+
+          <button class="ask-btn"
+            onclick="quickWhatsApp('${esc(p.name)}')">
+            Ask on WhatsApp
+          </button>
+        </div>
+      </article>
+    `;
+  }).join('');
 }
 function updateCartCount(){document.getElementById('cartCount').textContent=[...cart.values()].reduce((s,p)=>s+p.qty,0)}function addToCart(name){const p=products.find(x=>x.name===name);if(!p)return;const item=cart.get(name)||{...p,qty:0};item.qty++;cart.set(name,item);updateCartCount();const old=document.getElementById('cartToast');if(old)old.remove();const t=document.createElement('div');t.id='cartToast';t.className='toast';t.textContent=name+' added to cart';document.body.appendChild(t);setTimeout(()=>t.remove(),1800)}
 function openCart(){document.getElementById('cartOverlay').classList.add('open');document.body.classList.add('no-scroll');renderCart()}function closeCart(){document.getElementById('cartOverlay').classList.remove('open');document.body.classList.remove('no-scroll')}function overlayClick(e){if(e.target.id==='cartOverlay')closeCart()}function changeQty(name,d){const p=cart.get(name);if(!p)return;p.qty+=d;if(p.qty<=0)cart.delete(name);updateCartCount();renderCart()}function setQty(name,v){const p=cart.get(name);if(!p)return;p.qty=Math.max(1,Math.min(999,parseInt(v)||1));updateCartCount();renderCart()}function removeItem(name){cart.delete(name);updateCartCount();renderCart()}
