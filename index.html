@@ -144,6 +144,21 @@ const icons = {
 const search = document.getElementById('search');
 const category = document.getElementById('category');
 
+function money(amount) {
+  return '₦' + Number(amount).toLocaleString('en-NG');
+}
+
+function esc(value) {
+  return String(value).replace(/[&<>"']/g, function(char) {
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char];
+  });
+}
 function renderProducts() {
   const q = search.value.toLowerCase().trim();
   const cat = category.value;
