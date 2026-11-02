@@ -295,16 +295,22 @@ function renderProducts() {
         </div>
 
         <div class="product-actions">
-          <button class="add-btn"
-            onclick="addToCart('${esc(p.name)}')">
-            ＋ Add to Cart
-          </button>
+  <button class="add-btn"
+    onclick="addToCart('${esc(p.name)}')">
+    ＋ Add to Cart
+  </button>
 
-          <button class="ask-btn"
-            onclick="quickWhatsApp('${esc(p.name)}')">
-            Ask on WhatsApp
-          </button>
-        </div>
+  <button class="ask-btn"
+    onclick="quickWhatsApp('${esc(p.name)}')">
+    Ask on WhatsApp
+  </button>
+
+  <a class="ask-btn"
+    href="tel:+2347035593362"
+    style="text-align:center; text-decoration:none;">
+    Call Now
+  </a>
+</div>
       </article>
     `;
   }).join('');
