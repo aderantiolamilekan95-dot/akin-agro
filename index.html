@@ -564,4 +564,12 @@ search.addEventListener('input',renderProducts);category.addEventListener('chang
     googleProvider: reviewGoogleProvider
   };
 </script>
+<div id="firebase-test" style="padding:12px;text-align:center;font-weight:bold;">
+  Checking review system...
+</div>
+
+<script>
+  document.getElementById("firebase-test").textContent =
+    window.reviewFirebase ? "Review system connected." : "Review system not connected.";
+</script>  
 </body></html>
