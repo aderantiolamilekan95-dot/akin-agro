@@ -105,6 +105,115 @@ section{padding:55px 20px}.container{max-width:1100px;margin:auto}.section-head{
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
 @media(max-width:520px){.nav{gap:9px}.brand strong{font-size:13px}.brand small{font-size:10px}.logo{width:40px;height:40px}.nav nav a:not(.nav-order){display:none}.nav nav{flex:0 0 auto}.hero-panel{display:block}.product-actions{flex-direction:column}}
 @media(max-width:360px){.products{grid-template-columns:1fr}}
+
+/* CUSTOMER INFORMATION SECTION */
+#customer-info {
+  background: linear-gradient(180deg, #e8f1e7 0%, #f7faf5 100%);
+  padding: 75px 0;
+  position: relative;
+}
+
+#customer-info .section-head {
+  max-width: 720px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+#customer-info .location-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+#customer-info .location-card {
+  background: #ffffff;
+  border: 1px solid #dce8dc;
+  border-top: 4px solid #237844;
+  border-radius: 16px;
+  padding: 26px 23px;
+  box-shadow: 0 8px 24px rgba(20, 83, 45, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#customer-info .location-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 13px 30px rgba(20, 83, 45, 0.12);
+}
+
+#customer-info .location-card h3 {
+  color: #14532d;
+  font-size: 19px;
+  line-height: 1.4;
+  margin: 0 0 18px;
+}
+
+#customer-info .location-card p {
+  color: #46564a;
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 10px 0;
+}
+
+#customer-info .location-card strong {
+  color: #14532d;
+}
+
+#customer-info .location-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 13px;
+  padding: 12px 17px;
+  background: #16834a;
+  color: #ffffff;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#customer-info .location-card a:hover {
+  background: #14532d;
+  transform: translateY(-2px);
+}
+
+#customer-info .section-head:last-child {
+  background: #14532d;
+  color: #ffffff;
+  max-width: 100%;
+  padding: 27px 25px;
+  border-radius: 16px;
+  margin: 42px auto 0;
+}
+
+#customer-info .section-head:last-child h2 {
+  color: #d9f99d;
+  margin-top: 0;
+}
+
+#customer-info .section-head:last-child p {
+  color: #ffffff;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+@media (max-width: 850px) {
+  #customer-info .location-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  #customer-info {
+    padding: 55px 0;
+  }
+
+  #customer-info .location-card {
+    padding: 23px 20px;
+  }
+  }
+                        
 </style>
 
 <script type="application/ld+json">
