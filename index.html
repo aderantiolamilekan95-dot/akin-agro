@@ -762,7 +762,13 @@ search.addEventListener('input',renderProducts);category.addEventListener('chang
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
   import { getFirestore } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
-  import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+  import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyCHBi9G4scvYlf0kWc4q0l07oKnRa7QSnE",
@@ -777,6 +783,39 @@ search.addEventListener('input',renderProducts);category.addEventListener('chang
   const reviewDb = getFirestore(firebaseApp);
   const reviewAuth = getAuth(firebaseApp);
   const reviewGoogleProvider = new GoogleAuthProvider();
+
+  const signInButton = document.getElementById("google-review-signin");
+  const signInStatus = document.getElementById("review-signin-status");
+  const reviewFormContainer = document.getElementById("review-form-container");
+
+  signInButton.addEventListener("click", async () => {
+    signInStatus.textContent = "Opening Google sign-in...";
+
+    try {
+      await signInWithPopup(reviewAuth, reviewGoogleProvider);
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+      signInStatus.textContent = "Sign-in failed: " + error.message;
+    }
+  });
+
+  onAuthStateChanged(reviewAuth, (user) => {
+    if (user) {
+      signInStatus.textContent = "Signed in as " + user.email;
+      signInButton.textContent = "Sign out";
+      reviewFormContainer.style.display = "block";
+
+      signInButton.onclick = async () => {
+        await signOut(reviewAuth);
+      };
+    } else {
+      signInStatus.textContent = "Sign in to submit a review.";
+      signInButton.textContent = "Sign in with Google";
+      reviewFormContainer.style.display = "none";
+
+      signInButton.onclick = null;
+    }
+  });
 
   window.reviewFirebase = {
     db: reviewDb,
