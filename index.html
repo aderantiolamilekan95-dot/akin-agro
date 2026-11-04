@@ -356,7 +356,56 @@ section{padding:55px 20px}.container{max-width:1100px;margin:auto}.section-head{
     </div>
   </div>
 </section>
-  
+<section id="customer-reviews" class="locations">
+  <div class="container">
+    <div class="section-head">
+      <h2>Customer Reviews & Ratings</h2>
+      <p>See what customers say about their experience with IDUN-NU AGBE.</p>
+    </div>
+
+    <div class="location-grid">
+      <div class="location-card">
+        <h3>Our Customer Rating</h3>
+        <div id="average-rating">— / 5</div>
+        <div id="total-reviews">No approved reviews yet.</div>
+      </div>
+
+      <div class="location-card">
+        <h3>Share Your Experience</h3>
+        <p>Sign in with Google to rate our service and leave a review.</p>
+        <button type="button" id="google-review-signin">
+          Sign in with Google
+        </button>
+        <p id="review-signin-status"></p>
+      </div>
+    </div>
+
+    <div id="review-form-container" style="display:none;">
+      <h3>Write a Review</h3>
+
+      <form id="customer-review-form">
+        <label for="review-rating">Your Rating</label>
+        <select id="review-rating" required>
+          <option value="">Choose a rating</option>
+          <option value="5">★★★★★ — Excellent</option>
+          <option value="4">★★★★ — Very Good</option>
+          <option value="3">★★★ — Good</option>
+          <option value="2">★★ — Fair</option>
+          <option value="1">★ — Poor</option>
+        </select>
+
+        <label for="review-message">Your Review</label>
+        <textarea id="review-message" minlength="5" maxlength="1500"
+          placeholder="Tell us about your experience..." required></textarea>
+
+        <button type="submit">Submit Review</button>
+        <p id="review-submit-status"></p>
+      </form>
+    </div>
+
+    <div id="approved-reviews"></div>
+  </div>
+            </section>  
   <section id="contact"><div class="container"><div class="section-head"><h2>Contact &amp; Orders</h2><p>Need a product, current price or availability information? Send us a message.</p></div><div class="contact-grid"><div class="contact-panel"><h3>Let's Talk Agriculture</h3><p>For orders and enquiries, WhatsApp is our preferred contact channel.</p><div class="contact-item"><small>Phone / WhatsApp</small><a href="https://wa.me/2347035593362">0703 559 3362</a></div><div class="contact-item"><small>Email</small><a href="mailto:iddunnuagbe.agro@gmail.com">iddunnuagbe.agro@gmail.com</a></div><div class="contact-item"><small>Business area</small>Ogbomoso, Oyo State, Nigeria</div><div class="contact-item">
   <small>Operating Hours</small>
   <strong>Monday – Saturday:</strong> 7:00 AM – 9:00 PM<br>
