@@ -238,7 +238,178 @@ section{padding:55px 20px}.container{max-width:1100px;margin:auto}.section-head{
   max-width: 760px;
   margin: 10px auto 0;
   }
-  
+/* CUSTOMER REVIEWS SECTION */
+#customer-reviews {
+  background: linear-gradient(145deg, #e5f1e5 0%, #f5f8f1 55%, #eaf3e8 100%);
+  padding: 85px 0;
+  position: relative;
+}
+
+#customer-reviews .section-head {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 45px;
+}
+
+#customer-reviews .section-head h2 {
+  color: #14532d;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+#customer-reviews .section-head p {
+  color: #526454;
+  line-height: 1.8;
+}
+
+#customer-reviews .location-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#customer-reviews .location-card {
+  background: #fff;
+  border: 1px solid #d8e7d8;
+  border-top: 5px solid #237844;
+  border-radius: 18px;
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(20, 83, 45, 0.09);
+}
+
+#customer-reviews .location-card h3 {
+  color: #14532d;
+  font-size: 21px;
+  margin: 0 0 20px;
+}
+
+#average-rating {
+  color: #14532d;
+  font-size: 42px;
+  font-weight: 800;
+  margin: 12px 0;
+}
+
+#total-reviews {
+  color: #68776a;
+  font-size: 14px;
+}
+
+#customer-reviews .location-card button,
+#customer-review-form button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #14532d;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#customer-reviews .location-card button:hover,
+#customer-review-form button:hover {
+  background: #237844;
+  transform: translateY(-2px);
+}
+
+#customer-reviews #google-review-signin {
+  background: #fff;
+  color: #333;
+  border: 1px solid #d6ddd6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+#customer-reviews #google-review-signin:hover {
+  background: #f3f7f3;
+}
+
+#review-signin-status,
+#review-submit-status {
+  font-size: 13px;
+  color: #526454;
+  margin-top: 14px;
+}
+
+#review-form-container {
+  max-width: 650px;
+  margin: 35px auto 0;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #d8e7d8;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(20, 83, 45, 0.08);
+}
+
+#review-form-container h3 {
+  color: #14532d;
+  margin-top: 0;
+}
+
+#customer-review-form label {
+  display: block;
+  color: #14532d;
+  font-weight: 700;
+  margin: 18px 0 8px;
+}
+
+#customer-review-form select,
+#customer-review-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #ceddce;
+  border-radius: 9px;
+  background: #fbfdfb;
+  font: inherit;
+  color: #263b2b;
+}
+
+#customer-review-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+#customer-review-form button {
+  margin-top: 20px;
+}
+
+#approved-reviews {
+  max-width: 900px;
+  margin: 35px auto 0;
+}
+
+@media (max-width: 700px) {
+  #customer-reviews {
+    padding: 60px 0;
+  }
+
+  #customer-reviews .section-head h2 {
+    font-size: 26px;
+  }
+
+  #customer-reviews .location-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  #customer-reviews .location-card {
+    padding: 27px 22px;
+  }
+
+  #review-form-container {
+    padding: 23px 18px;
+  }
+  }  
 </style>
 
 <script type="application/ld+json">
