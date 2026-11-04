@@ -761,7 +761,12 @@ search.addEventListener('input',renderProducts);category.addEventListener('chang
 </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+  import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
   import {
     getAuth,
     GoogleAuthProvider,
@@ -783,7 +788,55 @@ search.addEventListener('input',renderProducts);category.addEventListener('chang
   const reviewDb = getFirestore(firebaseApp);
   const reviewAuth = getAuth(firebaseApp);
   const reviewGoogleProvider = new GoogleAuthProvider();
+  const reviewForm = document.getElementById("customer-review-form");
+  const reviewSubmitStatus = document.getElementById("review-submit-status");
 
+  reviewForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const user = reviewAuth.currentUser;
+
+    if (!user) {
+      reviewSubmitStatus.textContent = "Please sign in with Google first.";
+      return;
+    }
+
+    const rating = Number(document.getElementById("review-rating").value);
+    const message = document.getElementById("review-message").value.trim();
+
+    if (!rating || rating < 1 || rating > 5 || message.length < 5) {
+      reviewSubmitStatus.textContent = "Please provide a rating and a review of at least 5 characters.";
+      return;
+    }
+
+    const nameParts = (user.displayName || "Customer").trim().split(/\s+/);
+    const displayName = nameParts.length > 1
+      ? nameParts[0] + " " + nameParts[nameParts.length - 1][0].toUpperCase() + "."
+      : nameParts[0];
+
+    reviewSubmitStatus.textContent = "Submitting your review...";
+
+    try {
+      await addDoc(collection(reviewDb, "reviews"), {
+        displayName: displayName,
+        rating: rating,
+        review: message,
+        status: "pending",
+        createdAt: serverTimestamp(),
+        likes: 0
+      });
+
+      reviewSubmitStatus.textContent =
+        "Thank you! Your review has been submitted for approval.";
+
+      reviewForm.reset();
+
+    } catch (error) {
+      console.error("Review submission error:", error);
+      reviewSubmitStatus.textContent =
+        "Could not submit your review. Please try again.";
+    }
+  });
   const signInButton = document.getElementById("google-review-signin");
   const signInStatus = document.getElementById("review-signin-status");
   const reviewFormContainer = document.getElementById("review-form-container");
