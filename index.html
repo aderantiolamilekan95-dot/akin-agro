@@ -538,4 +538,30 @@ function renderCart(){const el=document.getElementById('cartItems'),tot=document
 function checkoutWhatsApp(){const items=[...cart.values()];if(!items.length){alert('Your cart is empty. Add at least one product first.');return}const lines=items.map(p=>`• ${p.name}${p.size?' ('+p.size+')':''} — Quantity: ${p.qty} — ${p.price===null?'Price to be confirmed':money(p.price)+' each; '+money(p.price*p.qty)}`);const known=items.reduce((s,p)=>s+(p.price===null?0:p.price*p.qty),0),unknown=items.some(p=>p.price===null);const msg=`Hello IDUN-NU AGBE Agro Chemicals & Co., I would like to place an order:\n\n${lines.join('\n')}\n\nPriced items subtotal: ${money(known)}${unknown?'\nPlease confirm prices for items marked price to be confirmed.':''}\n\nPlease confirm availability and the final total. Thank you.`;window.open('https://wa.me/2347035593362?text='+encodeURIComponent(msg),'_blank','noopener')}
 function quickWhatsApp(name){window.open('https://wa.me/2347035593362?text='+encodeURIComponent('Hello IDUN-NU AGBE, please tell me the current price and availability of '+name+'.'),'_blank','noopener')}
 search.addEventListener('input',renderProducts);category.addEventListener('change',renderProducts);document.getElementById('enquiry-form').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('customer-name').value.trim(),product=document.getElementById('customer-product').value.trim(),qty=document.getElementById('customer-quantity').value.trim(),details=document.getElementById('customer-message').value.trim();const msg=`Hello IDUN-NU AGBE Agro Chemicals & Co.\nName: ${name}\nProduct/enquiry: ${product}\nQuantity: ${qty||'Not specified'}\nDetails: ${details||'None'}`;window.open('https://wa.me/2347035593362?text='+encodeURIComponent(msg),'_blank','noopener')});document.getElementById('year').textContent=new Date().getFullYear();renderProducts();updateCartCount();
-</script></body></html>
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
+  import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCHBi9G4scvYlf0kWc4q0l07oKnRa7QSnE",
+    authDomain: "idun-nu-agbe-reviews.firebaseapp.com",
+    projectId: "idun-nu-agbe-reviews",
+    storageBucket: "idun-nu-agbe-reviews.firebasestorage.app",
+    messagingSenderId: "324253713248",
+    appId: "1:324253713248:web:8308bb887135acae145405"
+  };
+
+  const firebaseApp = initializeApp(firebaseConfig);
+  const reviewDb = getFirestore(firebaseApp);
+  const reviewAuth = getAuth(firebaseApp);
+  const reviewGoogleProvider = new GoogleAuthProvider();
+
+  window.reviewFirebase = {
+    db: reviewDb,
+    auth: reviewAuth,
+    googleProvider: reviewGoogleProvider
+  };
+</script>
+</body></html>
