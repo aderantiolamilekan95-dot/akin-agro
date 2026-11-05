@@ -997,6 +997,7 @@ search.addEventListener('input',renderProducts);category.addEventListener('chang
         await signOut(reviewAuth);
       };
     } else {
+      adminDashboard.style.display = "none";      
       signInStatus.textContent = "Sign in to submit a review.";
       signInButton.textContent = "Sign in with Google";
       reviewFormContainer.style.display = "none";
