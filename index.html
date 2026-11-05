@@ -854,6 +854,117 @@ search.addEventListener('input',renderProducts);category.addEventListener('chang
         "Could not submit your review. Please try again.";
     }
   });
+    const adminDashboard = document.getElementById("admin-review-dashboard");
+  const adminStatus = document.getElementById("admin-review-status");
+  const pendingReviews = document.getElementById("pending-reviews");
+  const adminApprovedReviews = document.getElementById("admin-approved-reviews");
+
+  const ADMIN_UID = "HGLp5KXNG0SmlfPbj5LOg7vhamR2";
+
+  async function loadAdminReviews() {
+    adminStatus.textContent = "Loading reviews...";
+
+    try {
+      const snapshot = await getDocs(collection(reviewDb, "reviews"));
+
+      pendingReviews.innerHTML = "";
+      adminApprovedReviews.innerHTML = "";
+
+      let pendingCount = 0;
+      let approvedCount = 0;
+
+      snapshot.forEach((reviewDoc) => {
+        const review = reviewDoc.data();
+
+        const card = document.createElement("div");
+        card.style.cssText =
+          "background:white;padding:18px;margin:14px 0;border-radius:12px;border:1px solid #d8e7d8;";
+
+        const heading = document.createElement("h4");
+        heading.textContent = review.displayName + " — " + review.rating + "/5 stars";
+
+        const message = document.createElement("p");
+        message.textContent = review.review;
+
+        const status = document.createElement("p");
+        status.textContent = "Status: " + review.status;
+
+        card.append(heading, message, status);
+
+        if (review.status === "pending") {
+          pendingCount++;
+
+          const approveButton = document.createElement("button");
+          approveButton.textContent = "Approve";
+          approveButton.onclick = async () => {
+            try {
+              await updateDoc(doc(reviewDb, "reviews", reviewDoc.id), {
+                status: "approved"
+              });
+              loadAdminReviews();
+            } catch (error) {
+              adminStatus.textContent = "Could not approve review.";
+              console.error(error);
+            }
+          };
+
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete";
+          deleteButton.style.marginLeft = "10px";
+          deleteButton.onclick = async () => {
+            if (!confirm("Delete this review permanently?")) return;
+
+            try {
+              await deleteDoc(doc(reviewDb, "reviews", reviewDoc.id));
+              loadAdminReviews();
+            } catch (error) {
+              adminStatus.textContent = "Could not delete review.";
+              console.error(error);
+            }
+          };
+
+          card.append(approveButton, deleteButton);
+          pendingReviews.appendChild(card);
+
+        } else if (review.status === "approved") {
+          approvedCount++;
+
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete";
+          deleteButton.onclick = async () => {
+            if (!confirm("Delete this approved review permanently?")) return;
+
+            try {
+              await deleteDoc(doc(reviewDb, "reviews", reviewDoc.id));
+              loadAdminReviews();
+            } catch (error) {
+              adminStatus.textContent = "Could not delete review.";
+              console.error(error);
+            }
+          };
+
+          card.appendChild(deleteButton);
+          adminApprovedReviews.appendChild(card);
+        }
+      });
+
+      adminStatus.textContent =
+        pendingCount + " pending review(s) · " +
+        approvedCount + " approved review(s)";
+
+      if (pendingCount === 0) {
+        pendingReviews.textContent = "No pending reviews.";
+      }
+
+      if (approvedCount === 0) {
+        adminApprovedReviews.textContent = "No approved reviews yet.";
+      }
+
+    } catch (error) {
+      adminStatus.textContent = "Could not load reviews. Check your connection.";
+      console.error(error);
+    }
+  }
   const signInButton = document.getElementById("google-review-signin");
   const signInStatus = document.getElementById("review-signin-status");
   const reviewFormContainer = document.getElementById("review-form-container");
