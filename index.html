@@ -982,6 +982,13 @@ search.addEventListener('input',renderProducts);category.addEventListener('chang
 
   onAuthStateChanged(reviewAuth, (user) => {
     if (user) {
+      const isAdmin = user.uid === ADMIN_UID;
+
+      adminDashboard.style.display = isAdmin ? "block" : "none";
+
+      if (isAdmin) {
+        loadAdminReviews();
+  }      
       signInStatus.textContent = "Signed in as " + user.email;
       signInButton.textContent = "Sign out";
       reviewFormContainer.style.display = "block";
